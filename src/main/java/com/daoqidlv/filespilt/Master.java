@@ -1,5 +1,6 @@
 package com.daoqidlv.filespilt;
 
+import com.daoqidlv.filespilt.disruptor.DisruptorMaster;
 import com.daoqidlv.filespilt.mutil.MutilThreadReadMaster;
 import com.daoqidlv.filespilt.single.forkjoin.ForkJoinPoolMaster;
 import com.daoqidlv.filespilt.single.normal.NormalPoolMaster;
@@ -42,12 +43,22 @@ public abstract class Master {
 	 * 		PRODUCERCONSUMER —— PRODUCER/CONSUMER模式实现
 	 * @return
 	 */
-	public static Master getMasterInstance(String masterType, String fileDir, String fileName, int subFileSizeLimit, int readTaskNum, int writeTaskNum, int queueSize) {
+	public static Master getMasterInstance(
+			String masterType, 
+			String fileDir, 
+			String fileName, 
+			int subFileSizeLimit, 
+			int readTaskNum, 
+			int writeTaskNum, 
+			int queueSize, 
+			int bufferSize) {
 		if(masterType.equals(Constants.MASTER_TYPE_NORMAL_POOL)) {
 			return new NormalPoolMaster(fileDir, fileName, subFileSizeLimit);
 		//默认使用NormalPoolMaster
-		} else if(masterType.equals(Constants.MASTER_TYPE_FORK_PRODUCER_CONSUMER)) {
+		} else if(masterType.equals(Constants.MASTER_TYPE_PRODUCER_CONSUMER)) {
 			return new MutilThreadReadMaster(fileDir, fileName, subFileSizeLimit, readTaskNum, writeTaskNum, queueSize);
+		} else if(masterType.equals(Constants.MASTER_TYPE_DISRUPTOR)) {
+			return new DisruptorMaster(fileDir, fileName, subFileSizeLimit, readTaskNum, writeTaskNum, queueSize, bufferSize);
 		} else {
 			return new ForkJoinPoolMaster(fileDir, fileName, subFileSizeLimit);
 		}

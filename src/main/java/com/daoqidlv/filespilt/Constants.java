@@ -9,7 +9,9 @@ public class Constants {
 	
 	public final static String MASTER_TYPE_FORK_JOIN_POOL = "FORKJOIN";
 	
-	public final static String MASTER_TYPE_FORK_PRODUCER_CONSUMER = "PRODUCERCONSUMER";	
+	public final static String MASTER_TYPE_PRODUCER_CONSUMER = "PRODUCERCONSUMER";
+	
+	public final static String MASTER_TYPE_DISRUPTOR = "DISRUPTOR";	
 	
 	public final static String DEFAULT_MASTER_TYPE = MASTER_TYPE_FORK_JOIN_POOL;	
 	
