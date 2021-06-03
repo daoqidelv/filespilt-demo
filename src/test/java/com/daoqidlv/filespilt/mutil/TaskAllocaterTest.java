@@ -25,15 +25,13 @@ public class TaskAllocaterTest {
 	@Before 
 	public void init() { 
 
-		File f = new File(this.getClass().getResource("").getPath()); 
+		File f = new File(this.getClass().getResource("").getPath());
 		testDirRootPath = f.getAbsolutePath();
-		
-		String orignFileFullName = testDirRootPath+"\\test.csv";
+		String orignFileFullName = testDirRootPath+"/test.csv";
 		int readTaskNum = 4;
 		int writeTaskNum = 4;
 		int maxLineSize = 16;
 		int subFileSizeLimit = 32;
-		
 		FileSpiltter fileSpiltter = new FileSpiltter(subFileSizeLimit, testDirRootPath, "test.csv");
 		BlockingQueue queue = new LinkedBlockingQueue<FileLine>(1024);
 		taskAllocater = new TaskAllocater(orignFileFullName, readTaskNum, writeTaskNum, maxLineSize, fileSpiltter, queue);

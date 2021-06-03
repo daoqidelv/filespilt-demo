@@ -39,10 +39,14 @@ public class Test {
 			System.err.println("参数为空，示例：#fileDir, #fileName, #subFileSizeLimit, #mode，");
 			return;
 		}
-		String fileDir = args[0];
-		String fileName = args[1];
-		String subFileSizeLimitStr = args[2];
-		String mode = args[3];
+//		String fileDir = args[0];
+//		String fileName = args[1];
+//		String subFileSizeLimitStr = args[2];
+//		String mode = args[3];
+		String fileDir = "/Users/dujiacheng.jason/IdeaProjects/filespilt-demo";
+		String fileName = "lineitem.my";
+		String subFileSizeLimitStr = "8";
+		String mode = "NORMAL";
 
 
 		//参数合法性校验
@@ -79,7 +83,7 @@ public class Test {
 		System.out.println("The master is: "+master.getClass().getName());
 		master.init();
 		//启动master
-		master.excute();
+		master.execute();
 		
 	}
 }

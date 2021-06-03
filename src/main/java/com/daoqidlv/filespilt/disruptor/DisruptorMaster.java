@@ -85,7 +85,7 @@ public class DisruptorMaster extends Master {
 
 	
 	@Override
-	public void excute() {
+	public void execute() {
 		System.out.println("begin to spilt...");
 		long startTime = System.currentTimeMillis();
 		

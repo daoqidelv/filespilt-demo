@@ -28,7 +28,7 @@ public class ForkJoinPoolMaster extends Master{
 	}
 	
 	@Override
-	public void excute() {
+	public void execute() {
 		System.out.println("begin to spilt...");
 		long startTime = System.currentTimeMillis();
 		String fullFileName = Util.genFullFileName(this.getFileDir(), this.getFileName());

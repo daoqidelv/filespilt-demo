@@ -41,7 +41,7 @@ public class NormalPoolMaster extends Master{
 	
 
 	@Override
-	public void excute() {
+	public void execute() {
 		System.out.println("begin to spilt...");
 		long startTime = System.currentTimeMillis();
 		File file = new File(Util.genFullFileName(this.getFileDir(), this.getFileName()));

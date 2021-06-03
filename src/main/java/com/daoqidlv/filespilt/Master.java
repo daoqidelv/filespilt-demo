@@ -74,7 +74,7 @@ public abstract class Master {
 	/**
 	 * 业务逻辑执行
 	 */
-	public abstract void excute();
+	public abstract void execute();
 
 	public String getFileDir() {
 		return fileDir;
